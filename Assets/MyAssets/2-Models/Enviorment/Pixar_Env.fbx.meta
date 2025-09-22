@@ -1,0 +1,454 @@
+fileFormatVersion: 2
+guid: 9a0abfa1da35229409f9acda71e12395
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ball
+    second: {fileID: 2100000, guid: 01245905c9d8d084e866433cd4342a4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cortins
+    second: {fileID: 2100000, guid: cbe98ced7a901f34ea3cf9f86d692c1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Desk_Handle_Texture
+    second: {fileID: 2100000, guid: f5976a10230fde44e8a074a99e824f2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Desk_Texture
+    second: {fileID: 2100000, guid: a3ddd4973426736438b2124c0c7c3e35, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door
+    second: {fileID: 2100000, guid: 4084a58d59d953449a7aad2ce4a1786c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor
+    second: {fileID: 2100000, guid: 6bbc99c1fe3f4a44ebdc06451329b475, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Food
+    second: {fileID: 2100000, guid: c12dbcb912325da4aa215f625c78a402, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Foto_Carro
+    second: {fileID: 2100000, guid: a8a8a116af40f614e8bb5cb30a3eb14c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 2ad0acf8bd1e8874dbda09c642018120, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lamp_Shade_Texture
+    second: {fileID: 2100000, guid: 0ffcb1240865c8c44b663ecc85adf500, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lamp_Textured_Rig_Finished_Lamp_Detail
+    second: {fileID: 2100000, guid: 8a42a818e8f53524f8c080d5249e3e7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lamp_Textured_Rig_Finished_Lamp_Texture
+    second: {fileID: 2100000, guid: 6c116d840ecc0db4bac20706cde9338d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lightbulb_Texture
+    second: {fileID: 2100000, guid: bb6b736f78adb77489cd0e401310da30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat
+    second: {fileID: 2100000, guid: 18c3f89df4c436848977ca7bdfb0cf7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_Comoda
+    second: {fileID: 2100000, guid: f00460abe5095d64e82cceb4b201c4a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Procedural Wood
+    second: {fileID: 2100000, guid: 4127851189a5e9046af06028f6f98aa0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof
+    second: {fileID: 2100000, guid: 1301e4d41ee35704e8efa9922f330b8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof_Lamp
+    second: {fileID: 2100000, guid: fe0ef0ee0bdccc84e943870b545f37c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof_Lamp_Alpha
+    second: {fileID: 2100000, guid: 3e43e8bbb2cf0e742831d0037828d049, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof_Lamp_emit
+    second: {fileID: 2100000, guid: 61cf8644ad9f3874f9abb651b0524834, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Round_Lamp_Texture
+    second: {fileID: 2100000, guid: d558f8a571ebc244695557c5b935b514, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Side_TAble_Texture
+    second: {fileID: 2100000, guid: eb38970f297bd3441b7486cc1cc32e7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Side_table_Handle
+    second: {fileID: 2100000, guid: 872860fb85e89034db7591446aef19b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Simple wood
+    second: {fileID: 2100000, guid: 5bffe20b152c58f4da52dba288200315, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Strategy_Guide_Texture
+    second: {fileID: 2100000, guid: 32bb2ca0ffc4f744ebaa4b30d18bb3b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Strip
+    second: {fileID: 2100000, guid: 7774a5dc751a4c74f9adfa2680e4dd66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Techo_2
+    second: {fileID: 2100000, guid: a46c349767d4edf469a520b15fef4729, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall2
+    second: {fileID: 2100000, guid: ef40a3657653a844b9430f7b15b79935, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wallpaper
+    second: {fileID: 2100000, guid: 723ebfd9e9f6b3643a4be4d051b33cd6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window Grill
+    second: {fileID: 2100000, guid: 41ea44f1854885845864596771db1e49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface1
+    second: {fileID: 2100000, guid: 1e83151a4aa78144dbee412c36a9d0b3, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 328096ec54da4252b3451406ac6c1529_RGB_aiStandardSurface1_albedo
+    second: {fileID: 2800000, guid: 7905da1272a69c2408995ecd02c38563, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cortins_BaseColor
+    second: {fileID: 2800000, guid: 0875ce0874d818f4f8dfbebcc345050e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cortins_Normal
+    second: {fileID: 2800000, guid: 29192916560aad34fa00d55b1039a489, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cortins_Roughness
+    second: {fileID: 2800000, guid: 79a671283e4c03c40a9ade779c0876ae, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Desk_BMP
+    second: {fileID: 2800000, guid: 7674215a751e1f844b13dd956ff28d50, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Desk_Paint
+    second: {fileID: 2800000, guid: 8e782fbcf855f5c4d9293dd00320bd45, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Door_Bake1_PBR_Diffuse
+    second: {fileID: 2800000, guid: 2e5955c1c9f5bce4bba275293316e518, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Door_Bake1_PBR_Metalness
+    second: {fileID: 2800000, guid: 60903bbac345dd84a9ae054edd921089, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Door_Bake1_PBR_Normal
+    second: {fileID: 2800000, guid: fb0161c85cbc19d4d9857bd32237524d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Door_Bake1_PBR_Roughness
+    second: {fileID: 2800000, guid: c855fe02f603eff419d8379a36b7f4d3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Floor_Bake1_PBR_Diffuse
+    second: {fileID: 2800000, guid: 4899c1041313c7646ad3beeeb5c40def, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Floor_Bake1_PBR_Normal
+    second: {fileID: 2800000, guid: a6ebf6f6dad32354bb808a978d4563d1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Floor_Bake1_PBR_Roughness
+    second: {fileID: 2800000, guid: 9802e54fcd55d56418ff16883ca9256d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Food_Bake1_PBR_Diffuse
+    second: {fileID: 2800000, guid: 43e4631fc1c87c749b4566cf9504ff96, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Food_Bake1_PBR_Normal
+    second: {fileID: 2800000, guid: 44a2223f70b577b42b33ea23397dbf93, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Food_Bake1_PBR_Roughness
+    second: {fileID: 2800000, guid: e2b1573066128d6479becc6d525da424, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Luxo_BAll_Paint
+    second: {fileID: 2800000, guid: d0e8989c8d432c54fb7956042db6f82f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Mat_Bake1_PBR_Diffuse
+    second: {fileID: 2800000, guid: cfd4ff99a9cec9646b877bff7967d692, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Mat_Bake1_PBR_Normal
+    second: {fileID: 2800000, guid: 7a03595fbafba24408bea919c57d9a2e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Mat_Bake1_PBR_Roughness
+    second: {fileID: 2800000, guid: 91c065e4c6f967a4b9fcaffe57b6d6dc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Roof_Lamp_Bake1_PBR_Diffuse
+    second: {fileID: 2800000, guid: c61c23470b90e6d4d8a6fd63fc64e43d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Roof_Lamp_Bake1_PBR_Metalness
+    second: {fileID: 2800000, guid: fc6320a030972924fad028423146ac58, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Roof_Lamp_Bake1_PBR_Roughness
+    second: {fileID: 2800000, guid: c91e41a1c3e6c8e4d9c0ff20ae62301f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Roof_Normal
+    second: {fileID: 2800000, guid: cbe9d7129ef05994ab1f720f20e2ab19, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Roof_Roughness
+    second: {fileID: 2800000, guid: d847d2fa68e6da847834ff0a805f63de, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Shelby
+    second: {fileID: 2800000, guid: 37a25896cd2e9a14bb59619414f8f131, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Side_table_Paint
+    second: {fileID: 2800000, guid: 8c5254f9249bc274da152d2aca2d721c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Strategy_Guide_BMP
+    second: {fileID: 2800000, guid: 606896290d896e14e82ba78d72798951, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Strategy_Guide_Paint
+    second: {fileID: 2800000, guid: f03388f084f14384795cae386ac2c930, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Techo_E
+    second: {fileID: 2800000, guid: 03a9a973c8a15484f87083750819ed3f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wall2_Normal
+    second: {fileID: 2800000, guid: 4665d8fe1dd2fc144ad0556bf3d17977, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wallpaper_Normal
+    second: {fileID: 2800000, guid: 68b524f244a341347baf03ddb3817933, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Window_Grill_Bake1_PBR_Diffuse
+    second: {fileID: 2800000, guid: 092337a516acdd34c9b013980368c95a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Window_Grill_Bake1_PBR_Normal
+    second: {fileID: 2800000, guid: 0457b3dcb98c8b24f9dd4bc91f5779cf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Window_Grill_Bake1_PBR_Roughness
+    second: {fileID: 2800000, guid: 1a6fd26edbae1074aa01763416ade0d1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: handle_Paint
+    second: {fileID: 2800000, guid: c812a2ce194663d46a66de3239f2feeb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_diffuse
+    second: {fileID: 2800000, guid: d0c59baf987e78a47be7f4592ce3340b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_normal
+    second: {fileID: 2800000, guid: 4b3eac0e8ef50d24fa9e9d063a054d1e, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

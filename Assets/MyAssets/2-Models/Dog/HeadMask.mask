@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HeadMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: JRTerrier_JRTerrier_0
+    m_Weight: 0
+  - m_Path: RootNode
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Helper_foot_b.L_053
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Helper_foot_b.L_053/Helper_foot_b.L_053_end
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Helper_foot_b.R_054
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Helper_foot_b.R_054/Helper_foot_b.R_054_end
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Helper_shin_f.L_055
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Helper_shin_f.L_055/Helper_shin_f.L_055_end
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Helper_shin_f.R_056
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Helper_shin_f.R_056/Helper_shin_f.R_056_end
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.L_041
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.L_041/thigh_b.L_042
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.L_041/thigh_b.L_042/leg_b.L_043
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.L_041/thigh_b.L_042/leg_b.L_043/shin_b.L_044
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.L_041/thigh_b.L_042/leg_b.L_043/shin_b.L_044/foot_b.L_045
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.L_041/thigh_b.L_042/leg_b.L_043/shin_b.L_044/foot_b.L_045/claws_b.L_046
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.L_041/thigh_b.L_042/leg_b.L_043/shin_b.L_044/foot_b.L_045/claws_b.L_046/claws_b.L_046_end
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.R_047
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.R_047/thigh_b.R_048
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.R_047/thigh_b.R_048/leg_b.R_049
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.R_047/thigh_b.R_048/leg_b.R_049/shin_b.R_050
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.R_047/thigh_b.R_048/leg_b.R_049/shin_b.R_050/foot_b.R_051
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.R_047/thigh_b.R_048/leg_b.R_049/shin_b.R_050/foot_b.R_051/claws_b.R_052
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/hip_b.R_047/thigh_b.R_048/leg_b.R_049/shin_b.R_050/foot_b.R_051/claws_b.R_052/claws_b.R_052_end
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.L_024
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.L_024/thigh_f.L_025
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.L_024/thigh_f.L_025/leg_f.L_026
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.L_024/thigh_f.L_025/leg_f.L_026/shin_f.L_027
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.L_024/thigh_f.L_025/leg_f.L_026/shin_f.L_027/foot_f.L_028
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.L_024/thigh_f.L_025/leg_f.L_026/shin_f.L_027/foot_f.L_028/claws_f.L_029
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.L_024/thigh_f.L_025/leg_f.L_026/shin_f.L_027/foot_f.L_028/claws_f.L_029/claws_f.L_029_end
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.R_030
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.R_030/thigh_f.R_031
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.R_030/thigh_f.R_031/leg_f.R_032
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.R_030/thigh_f.R_031/leg_f.R_032/shin_f.R_033
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.R_030/thigh_f.R_031/leg_f.R_032/shin_f.R_033/foot_f.R_034
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.R_030/thigh_f.R_031/leg_f.R_032/shin_f.R_033/foot_f.R_034/claws_f.R_035
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/hip_f.R_030/thigh_f.R_031/leg_f.R_032/shin_f.R_033/foot_f.R_034/claws_f.R_035/claws_f.R_035_end
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/Ear_01.L_015
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/Ear_01.L_015/Ear_02.L_016
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/Ear_01.L_015/Ear_02.L_016/Ear_02.L_016_end
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/Ear_01.R_018
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/Ear_01.R_018/Ear_02.R_019
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/Ear_01.R_018/Ear_02.R_019/Ear_02.R_019_end
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/eye.L_022
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/eye.L_022/eye.L_022_end
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/eye.R_023
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/eye.R_023/eye.R_023_end
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/eyelid.L_014
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/eyelid.L_014/eyelid.L_014_end
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/eyelid.R_017
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/eyelid.R_017/eyelid.R_017_end
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/Mouth.L_020
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/Mouth.L_020/Mouth.L_020_end
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/Mouth.R_021
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/Mouth.R_021/Mouth.R_021_end
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/mouth_08
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/mouth_08/tongue_1_09
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/mouth_08/tongue_1_09/tongue_2_010
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/mouth_08/tongue_1_09/tongue_2_010/tongue_3_011
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/mouth_08/tongue_1_09/tongue_2_010/tongue_3_011/tongue_4_012
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/mouth_08/tongue_1_09/tongue_2_010/tongue_3_011/tongue_4_012/tongue_4_012_end
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/nose_013
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Spine_02_00/Spine_03_03/Spine_04_04/Spine_05_05/neck_06/head_07/nose_013/nose_013_end
+    m_Weight: 1
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Tail_01_036
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Tail_01_036/Tail_02_037
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Tail_01_036/Tail_02_037/Tail_03_038
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Tail_01_036/Tail_02_037/Tail_03_038/Tail_04_039
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Tail_01_036/Tail_02_037/Tail_03_038/Tail_04_039/Tail_05_040
+    m_Weight: 0
+  - m_Path: RootNode/Arm_JRTerrier/Skeleton/Root_bone_01/Spine_base_02/Tail_01_036/Tail_02_037/Tail_03_038/Tail_04_039/Tail_05_040/Tail_05_040_end
+    m_Weight: 0
