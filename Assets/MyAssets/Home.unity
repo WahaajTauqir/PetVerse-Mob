@@ -50189,7 +50189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &1577661244
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -55040,7 +55040,7 @@ MonoBehaviour:
     energyDecay: 2
     hygieneDecay: 1
     wellbeingDecay: 2
-  activeGameFactor: 0.2
+  activeGameFactor: 0.5
   inactiveGameFactor: 0.2
   criticalNeed: Food
   interactionFactor: 3

@@ -32,10 +32,8 @@ public class GeneralAnimatorManager : MonoBehaviour
     public Animator animator;
     public GeneralManager gm;
     public bool[] idleTriggerStates;
-
-    // Queue-based trigger system
     private Queue<IdleTrigger> triggerQueue;
-    public int MaxQueueSize = 10; // Prevent infinite queue growth
+    public int MaxQueueSize = 10;
 
     void Awake()
     {
@@ -61,8 +59,6 @@ public class GeneralAnimatorManager : MonoBehaviour
 
     public void StandMainLoop()
     {
-        // StandMainLoop logic
-
         if (gm.personalitySystem.petPersonality == "shy")
         {
             if (gm.emotionSystem.GetEmotionValue("Excited") > 70)
@@ -78,7 +74,6 @@ public class GeneralAnimatorManager : MonoBehaviour
                 SetIdleTrigger(IdleTrigger.StandExcitedLow);
             }
 
-            // Moderate curiosity threshold
             if (gm.emotionSystem.GetEmotionValue("Curious") > 50)
             {
                 SetIdleTrigger(IdleTrigger.StandCuriousHigh_WatchLeftRight);
@@ -117,7 +112,6 @@ public class GeneralAnimatorManager : MonoBehaviour
                 SetIdleTrigger(IdleTrigger.StandExcitedLow);
             }
 
-            // Low curiosity threshold
             if (gm.emotionSystem.GetEmotionValue("Curious") > 30)
             {
                 SetIdleTrigger(IdleTrigger.StandCuriousHigh_WatchLeftRight);
@@ -156,7 +150,6 @@ public class GeneralAnimatorManager : MonoBehaviour
                 SetIdleTrigger(IdleTrigger.StandExcitedLow);
             }
 
-            // Low-moderate curiosity threshold
             if (gm.emotionSystem.GetEmotionValue("Curious") > 35)
             {
                 SetIdleTrigger(IdleTrigger.StandCuriousHigh_WatchLeftRight);
@@ -195,7 +188,6 @@ public class GeneralAnimatorManager : MonoBehaviour
                 SetIdleTrigger(IdleTrigger.StandExcitedLow);
             }
 
-            // Moderate curiosity threshold
             if (gm.emotionSystem.GetEmotionValue("Curious") > 45)
             {
                 SetIdleTrigger(IdleTrigger.StandCuriousHigh_WatchLeftRight);
@@ -223,8 +215,6 @@ public class GeneralAnimatorManager : MonoBehaviour
 
     public void SitMainLoop()
     {
-        // SitMainLoop logic
-
         if (gm.personalitySystem.petPersonality == "shy")
         {
             if (gm.emotionSystem.GetEmotionValue("Curious") > 60)
@@ -258,7 +248,6 @@ public class GeneralAnimatorManager : MonoBehaviour
     public void LieMainLoop()
     {
         // LieMainLoop logic
-
         if (gm.personalitySystem.petPersonality == "shy")
         {
             if (gm.needsSystem.GetEnergy() < 50)
@@ -336,23 +325,25 @@ public class GeneralAnimatorManager : MonoBehaviour
 
     public void SetIdleTrigger(IdleTrigger trigger)
     {
-        // bool isStateTransition = trigger == IdleTrigger.ToStandStart ||
-        //                     trigger == IdleTrigger.ToSitStart ||
-        //                     trigger == IdleTrigger.ToLieStart;
+        bool isStateTransition = trigger == IdleTrigger.ToStandStart ||
+                            trigger == IdleTrigger.ToSitStart ||
+                            trigger == IdleTrigger.ToLieStart;
 
-        // if (isStateTransition)
-        // {
-        //     if (triggerQueue.Count >= MaxQueueSize)
-        //     {
-        //         return;
-        //     }
+        if (isStateTransition)
+        {
+            ClearTriggerQueue();
+            
+            if (triggerQueue.Count >= MaxQueueSize)
+            {
+                return;
+            }
 
-        //     triggerQueue.Enqueue(trigger);
+            triggerQueue.Enqueue(trigger);
 
-        //     int index = (int)trigger;
-        //     idleTriggerStates[index] = true;
-        //     return;
-        // }
+            int index = (int)trigger;
+            idleTriggerStates[index] = true;
+            return;
+        }
 
         if (!triggerQueue.Contains(trigger))
         {
@@ -387,10 +378,21 @@ public class GeneralAnimatorManager : MonoBehaviour
         {
             IdleTrigger nextTrigger = triggerQueue.Dequeue();
             lastTrigger = nextTrigger;
+            
+            ResetAllAnimatorTriggers();
+            
             animator.SetTrigger(nextTrigger.ToString());
             return nextTrigger;
         }
         return null;
+    }
+    
+    private void ResetAllAnimatorTriggers()
+    {
+        foreach (IdleTrigger trigger in System.Enum.GetValues(typeof(IdleTrigger)))
+        {
+            animator.ResetTrigger(trigger.ToString());
+        }
     }
 
     public void ClearTriggerQueue()
