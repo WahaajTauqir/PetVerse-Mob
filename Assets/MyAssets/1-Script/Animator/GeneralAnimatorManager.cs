@@ -5,54 +5,43 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UIElements;
 
-// public enum ActionTrigger
-// {
-//     ToEatStart,
-//     ToGroomStart,
-//     ToPlayStart,
-//     ToPetStart,
-//     ToSleepStart,
-// }
-public enum TrickTrigger
+public enum IdleTrigger
 {
+    ToStandStart,
     ToSitStart,
-    ToStayStart,
-    ToComeStart,
-    ToActivity,
-}
-
-public enum ReactionTrigger
-{
-    ToActivity,
-    ToNeglect,
-    ToCare,
-    ToNull
-}
-
-public enum HeadMaskTrigger
-{
-    ToEntryHead,
-    ToHeadTilt,
-    ToHeadWiggle,
-    ToBark
-}
-
-public enum TailMaskTrigger
-{
-    ToEntryTail,
-    ToStandTailWag,
-    ToSitTailWag
-}
-
-public enum EnergyTrigger
-{
-
+    ToLieStart,
+    //--------------
+    StandHygieneLow,
+    StandFoodLow,
+    StandExcitedLow,
+    StandExcitedHighStart_Bark,
+    StandExcitedHighCrouchBark_TailWag,
+    StandCuriousHigh_WatchLeftRight,
+    StandCuriousHigh_HeadTilt,
+    StandCuriousHigh_Wonder,
+    SitCuriousHigh,
+    LieEnergyLow_HeadDown,
+    LieCuriousHighStart_HeadUp,
+    LieSleepy
 }
 
 public class GeneralAnimatorManager : MonoBehaviour
 {
+    public IdleTrigger lastTrigger;
+
     public Animator animator;
     public GeneralManager gm;
+    public bool[] idleTriggerStates;
+
+    // Queue-based trigger system
+    private Queue<IdleTrigger> triggerQueue;
+    public int MaxQueueSize = 10; // Prevent infinite queue growth
+
+    void Awake()
+    {
+        idleTriggerStates = new bool[System.Enum.GetValues(typeof(IdleTrigger)).Length];
+        triggerQueue = new Queue<IdleTrigger>();
+    }
 
     void Start()
     {
@@ -72,311 +61,354 @@ public class GeneralAnimatorManager : MonoBehaviour
 
     public void StandMainLoop()
     {
+        // StandMainLoop logic
+
         if (gm.personalitySystem.petPersonality == "shy")
         {
-            // Shy: Needs higher excitement (70+) to get excited due to cautious nature
             if (gm.emotionSystem.GetEmotionValue("Excited") > 70)
             {
-                animator.SetTrigger("StandExcitedHighStart(Bark)"); // Bark
+                SetIdleTrigger(IdleTrigger.StandExcitedHighStart_Bark);
             }
             if (gm.emotionSystem.GetEmotionValue("Excited") > 80)
             {
-                animator.SetTrigger("StandExcitedHighCrouchBark(TailWag)"); // TailWag
+                SetIdleTrigger(IdleTrigger.StandExcitedHighCrouchBark_TailWag);
             }
             if (gm.emotionSystem.GetEmotionValue("Excited") < 30)
             {
-                animator.SetTrigger("StandExcitedLow");
+                SetIdleTrigger(IdleTrigger.StandExcitedLow);
             }
 
-            // Shy: Moderate curiosity threshold (50+) - cautious exploration
+            // Moderate curiosity threshold
             if (gm.emotionSystem.GetEmotionValue("Curious") > 50)
             {
-                animator.SetTrigger("StandCuriousHigh(WatchLeftRight)"); // WatchLeftRight
+                SetIdleTrigger(IdleTrigger.StandCuriousHigh_WatchLeftRight);
             }
             if (gm.emotionSystem.GetEmotionValue("Curious") > 60)
             {
-                animator.SetTrigger("StandCuriousHigh(HeadTilt)"); // HeadTilt
+                SetIdleTrigger(IdleTrigger.StandCuriousHigh_HeadTilt);
             }
             if (gm.emotionSystem.GetEmotionValue("Curious") > 70)
             {
-                animator.SetTrigger("StandCuriousHigh(Wonder)"); // Wonder
+                SetIdleTrigger(IdleTrigger.StandCuriousHigh_Wonder);
             }
 
             if (gm.needsSystem.GetFood() < 40)
             {
-                animator.SetTrigger("StandFoodLow");
+                SetIdleTrigger(IdleTrigger.StandFoodLow);
             }
 
             if (gm.needsSystem.GetHygiene() < 35)
             {
-                animator.SetTrigger("StandHygieneLow");
+                SetIdleTrigger(IdleTrigger.StandHygieneLow);
             }
         }
         else if (gm.personalitySystem.petPersonality == "curious")
         {
-            // Curious: Moderate excitement threshold (50+) - balanced explorer
             if (gm.emotionSystem.GetEmotionValue("Excited") > 50)
             {
-                animator.SetTrigger("StandExcitedHighStart(Bark)"); // Bark
+                SetIdleTrigger(IdleTrigger.StandExcitedHighStart_Bark);
             }
             if (gm.emotionSystem.GetEmotionValue("Excited") > 65)
             {
-                animator.SetTrigger("StandExcitedHighCrouchBark(TailWag)"); // TailWag
+                SetIdleTrigger(IdleTrigger.StandExcitedHighCrouchBark_TailWag);
             }
             if (gm.emotionSystem.GetEmotionValue("Excited") < 35)
             {
-                animator.SetTrigger("StandExcitedLow");
+                SetIdleTrigger(IdleTrigger.StandExcitedLow);
             }
 
-            // Curious: Low curiosity threshold (30+) - naturally inquisitive
+            // Low curiosity threshold
             if (gm.emotionSystem.GetEmotionValue("Curious") > 30)
             {
-                animator.SetTrigger("StandCuriousHigh(WatchLeftRight)"); // WatchLeftRight
+                SetIdleTrigger(IdleTrigger.StandCuriousHigh_WatchLeftRight);
             }
             if (gm.emotionSystem.GetEmotionValue("Curious") > 40)
             {
-                animator.SetTrigger("StandCuriousHigh(HeadTilt)"); // HeadTilt
+                SetIdleTrigger(IdleTrigger.StandCuriousHigh_HeadTilt);
             }
             if (gm.emotionSystem.GetEmotionValue("Curious") > 50)
             {
-                animator.SetTrigger("StandCuriousHigh(Wonder)"); // Wonder
+                SetIdleTrigger(IdleTrigger.StandCuriousHigh_Wonder);
             }
 
             if (gm.needsSystem.GetFood() < 50)
             {
-                animator.SetTrigger("StandFoodLow");
+                SetIdleTrigger(IdleTrigger.StandFoodLow);
             }
 
             if (gm.needsSystem.GetHygiene() < 45)
             {
-                animator.SetTrigger("StandHygieneLow");
+                SetIdleTrigger(IdleTrigger.StandHygieneLow);
             }
         }
         else if (gm.personalitySystem.petPersonality == "playful")
         {
-            // Playful: Very low excitement threshold (25+) - gets excited easily
             if (gm.emotionSystem.GetEmotionValue("Excited") > 25)
             {
-                animator.SetTrigger("StandExcitedHighStart(Bark)"); // Bark
+                SetIdleTrigger(IdleTrigger.StandExcitedHighStart_Bark);
             }
             if (gm.emotionSystem.GetEmotionValue("Excited") > 40)
             {
-                animator.SetTrigger("StandExcitedHighCrouchBark(TailWag)"); // TailWag
+                SetIdleTrigger(IdleTrigger.StandExcitedHighCrouchBark_TailWag);
             }
             if (gm.emotionSystem.GetEmotionValue("Excited") < 20)
             {
-                animator.SetTrigger("StandExcitedLow");
+                SetIdleTrigger(IdleTrigger.StandExcitedLow);
             }
 
-            // Playful: Low-moderate curiosity threshold (35+) - playful exploration
+            // Low-moderate curiosity threshold
             if (gm.emotionSystem.GetEmotionValue("Curious") > 35)
             {
-                animator.SetTrigger("StandCuriousHigh(WatchLeftRight)"); // WatchLeftRight
+                SetIdleTrigger(IdleTrigger.StandCuriousHigh_WatchLeftRight);
             }
             if (gm.emotionSystem.GetEmotionValue("Curious") > 45)
             {
-                animator.SetTrigger("StandCuriousHigh(HeadTilt)"); // HeadTilt
+                SetIdleTrigger(IdleTrigger.StandCuriousHigh_HeadTilt);
             }
             if (gm.emotionSystem.GetEmotionValue("Curious") > 55)
             {
-                animator.SetTrigger("StandCuriousHigh(Wonder)"); // Wonder
+                SetIdleTrigger(IdleTrigger.StandCuriousHigh_Wonder);
             }
 
             if (gm.needsSystem.GetFood() < 60)
             {
-                animator.SetTrigger("StandFoodLow");
+                SetIdleTrigger(IdleTrigger.StandFoodLow);
             }
 
             if (gm.needsSystem.GetHygiene() < 40)
             {
-                animator.SetTrigger("StandHygieneLow");
+                SetIdleTrigger(IdleTrigger.StandHygieneLow);
             }
         }
         else if (gm.personalitySystem.petPersonality == "affectionate")
         {
-            // Affectionate: Moderate-low excitement threshold (40+) - responds well to attention
             if (gm.emotionSystem.GetEmotionValue("Excited") > 40)
             {
-                animator.SetTrigger("StandExcitedHighStart(Bark)"); // Bark
+                SetIdleTrigger(IdleTrigger.StandExcitedHighStart_Bark);
             }
             if (gm.emotionSystem.GetEmotionValue("Excited") > 55)
             {
-                animator.SetTrigger("StandExcitedHighCrouchBark(TailWag)"); // TailWag
+                SetIdleTrigger(IdleTrigger.StandExcitedHighCrouchBark_TailWag);
             }
             if (gm.emotionSystem.GetEmotionValue("Excited") < 25)
             {
-                animator.SetTrigger("StandExcitedLow");
+                SetIdleTrigger(IdleTrigger.StandExcitedLow);
             }
 
-            // Affectionate: Moderate curiosity threshold (45+) - socially curious
+            // Moderate curiosity threshold
             if (gm.emotionSystem.GetEmotionValue("Curious") > 45)
             {
-                animator.SetTrigger("StandCuriousHigh(WatchLeftRight)"); // WatchLeftRight
+                SetIdleTrigger(IdleTrigger.StandCuriousHigh_WatchLeftRight);
             }
             if (gm.emotionSystem.GetEmotionValue("Curious") > 55)
             {
-                animator.SetTrigger("StandCuriousHigh(HeadTilt)"); // HeadTilt
+                SetIdleTrigger(IdleTrigger.StandCuriousHigh_HeadTilt);
             }
             if (gm.emotionSystem.GetEmotionValue("Curious") > 65)
             {
-                animator.SetTrigger("StandCuriousHigh(Wonder)"); // Wonder
+                SetIdleTrigger(IdleTrigger.StandCuriousHigh_Wonder);
             }
 
             if (gm.needsSystem.GetFood() < 45)
             {
-                animator.SetTrigger("StandFoodLow");
+                SetIdleTrigger(IdleTrigger.StandFoodLow);
             }
 
             if (gm.needsSystem.GetHygiene() < 50)
             {
-                animator.SetTrigger("StandHygieneLow");
+                SetIdleTrigger(IdleTrigger.StandHygieneLow);
             }
         }
     }
 
     public void SitMainLoop()
     {
+        // SitMainLoop logic
+
         if (gm.personalitySystem.petPersonality == "shy")
         {
-            // Shy: Higher curiosity threshold (60+) when sitting - needs more stimulus to be curious while seated
             if (gm.emotionSystem.GetEmotionValue("Curious") > 60)
             {
-                animator.SetTrigger("SitCuriousHigh");
+                SetIdleTrigger(IdleTrigger.SitCuriousHigh);
             }
         }
         else if (gm.personalitySystem.petPersonality == "curious")
         {
-            // Curious: Low curiosity threshold (25+) when sitting - naturally curious even while sitting
             if (gm.emotionSystem.GetEmotionValue("Curious") > 25)
             {
-                animator.SetTrigger("SitCuriousHigh");
+                SetIdleTrigger(IdleTrigger.SitCuriousHigh);
             }
         }
         else if (gm.personalitySystem.petPersonality == "playful")
         {
-            // Playful: Moderate curiosity threshold (40+) when sitting - wants to play rather than sit
             if (gm.emotionSystem.GetEmotionValue("Curious") > 40)
             {
-                animator.SetTrigger("SitCuriousHigh");
+                SetIdleTrigger(IdleTrigger.SitCuriousHigh);
             }
         }
         else if (gm.personalitySystem.petPersonality == "affectionate")
         {
-            // Affectionate: Moderate-low curiosity threshold (35+) when sitting - curious about social interactions
             if (gm.emotionSystem.GetEmotionValue("Curious") > 35)
             {
-                animator.SetTrigger("SitCuriousHigh");
+                SetIdleTrigger(IdleTrigger.SitCuriousHigh);
             }
         }
     }
 
     public void LieMainLoop()
     {
+        // LieMainLoop logic
+
         if (gm.personalitySystem.petPersonality == "shy")
         {
-            // Shy: Moderate energy threshold (50) to show low energy - conserves energy
             if (gm.needsSystem.GetEnergy() < 50)
             {
-                animator.SetTrigger("LieEnergyLow(HeadDown)"); // HeadDown
+                SetIdleTrigger(IdleTrigger.LieEnergyLow_HeadDown);
             }
 
-            // Shy: Higher curiosity threshold (55+) when lying - needs more stimulus to lift head up
             if (gm.emotionSystem.GetEmotionValue("Curious") > 55)
             {
-                animator.SetTrigger("LieCuriousHighStart(HeadUp)"); // HeadUp
+                SetIdleTrigger(IdleTrigger.LieCuriousHighStart_HeadUp);
             }
 
-            // Shy: Moderate happy threshold (45) to feel sleepy - gets sad/sleepy easier
             if (gm.emotionSystem.GetEmotionValue("Happy") < 45)
             {
-                animator.SetTrigger("LieSleepy");
+                SetIdleTrigger(IdleTrigger.LieSleepy);
             }
         }
         else if (gm.personalitySystem.petPersonality == "curious")
         {
-            // Curious: Lower energy threshold (35) to show low energy - uses energy exploring
             if (gm.needsSystem.GetEnergy() < 35)
             {
-                animator.SetTrigger("LieEnergyLow(HeadDown)"); // HeadDown
+                SetIdleTrigger(IdleTrigger.LieEnergyLow_HeadDown);
             }
 
-            // Curious: Low curiosity threshold (30+) when lying - easily curious even when resting
             if (gm.emotionSystem.GetEmotionValue("Curious") > 30)
             {
-                animator.SetTrigger("LieCuriousHighStart(HeadUp)"); // HeadUp
+                SetIdleTrigger(IdleTrigger.LieCuriousHighStart_HeadUp);
             }
 
-            // Curious: Lower excited threshold (30) to be sleepy - needs excitement to stay awake
             if (gm.emotionSystem.GetEmotionValue("Excited") < 30)
             {
-                animator.SetTrigger("LieSleepy");
+                SetIdleTrigger(IdleTrigger.LieSleepy);
             }
         }
         else if (gm.personalitySystem.petPersonality == "playful")
         {
-            // Playful: Lower energy threshold (30) to show low energy - uses lots of energy playing
             if (gm.needsSystem.GetEnergy() < 30)
             {
-                animator.SetTrigger("LieEnergyLow(HeadDown)"); // HeadDown
+                SetIdleTrigger(IdleTrigger.LieEnergyLow_HeadDown);
             }
 
-            // Playful: Moderate curiosity threshold (40+) when lying - still playful even resting
             if (gm.emotionSystem.GetEmotionValue("Curious") > 40)
             {
-                animator.SetTrigger("LieCuriousHighStart(HeadUp)"); // HeadUp
+                SetIdleTrigger(IdleTrigger.LieCuriousHighStart_HeadUp);
             }
 
-            // Playful: Lower excited threshold (25) to be sleepy - crashes hard after playing
             if (gm.emotionSystem.GetEmotionValue("Excited") < 25)
             {
-                animator.SetTrigger("LieSleepy");
+                SetIdleTrigger(IdleTrigger.LieSleepy);
             }
         }
         else if (gm.personalitySystem.petPersonality == "affectionate")
         {
-            // Affectionate: Moderate energy threshold (40) to show low energy - balanced energy use
             if (gm.needsSystem.GetEnergy() < 40)
             {
-                animator.SetTrigger("LieEnergyLow(HeadDown)"); // HeadDown
+                SetIdleTrigger(IdleTrigger.LieEnergyLow_HeadDown);
             }
 
-            // Affectionate: Moderate-low curiosity threshold (35+) when lying - socially curious
             if (gm.emotionSystem.GetEmotionValue("Curious") > 35)
             {
-                animator.SetTrigger("LieCuriousHighStart(HeadUp)"); // HeadUp
+                SetIdleTrigger(IdleTrigger.LieCuriousHighStart_HeadUp);
             }
 
-            // Affectionate: Moderate excited threshold (35) to be sleepy - content when resting
             if (gm.emotionSystem.GetEmotionValue("Excited") < 35)
             {
-                animator.SetTrigger("LieSleepy");
+                SetIdleTrigger(IdleTrigger.LieSleepy);
             }
         }
     }
 
     public void TriggerReset()
     {
-        // Reset TrickTrigger
-        animator.ResetTrigger("ToSitStart");
-        animator.ResetTrigger("ToStayStart");
-        animator.ResetTrigger("ToComeStart");
-        animator.ResetTrigger("ToActivity");
+        ClearTriggerQueue();
+    }
 
-        // Reset ReactionTrigger
-        animator.ResetTrigger("ToActivity");
-        animator.ResetTrigger("ToNeglect");
-        animator.ResetTrigger("ToCare");
-        animator.ResetTrigger("ToNull");
+    public void SetIdleTrigger(IdleTrigger trigger)
+    {
+        // bool isStateTransition = trigger == IdleTrigger.ToStandStart ||
+        //                     trigger == IdleTrigger.ToSitStart ||
+        //                     trigger == IdleTrigger.ToLieStart;
 
-        // Reset HeadMaskTrigger
-        animator.ResetTrigger("ToEntryHead");
-        animator.ResetTrigger("ToHeadTilt");
-        animator.ResetTrigger("ToHeadWiggle");
-        animator.ResetTrigger("ToBark");
+        // if (isStateTransition)
+        // {
+        //     if (triggerQueue.Count >= MaxQueueSize)
+        //     {
+        //         return;
+        //     }
 
-        // Reset TailMaskTrigger
-        animator.ResetTrigger("ToEntryTail");
-        animator.ResetTrigger("ToStandTailWag");
-        animator.ResetTrigger("ToSitTailWag");
+        //     triggerQueue.Enqueue(trigger);
+
+        //     int index = (int)trigger;
+        //     idleTriggerStates[index] = true;
+        //     return;
+        // }
+
+        if (!triggerQueue.Contains(trigger))
+        {
+            if (triggerQueue.Count > 0)
+            {
+                IdleTrigger lastTriggerInQueue = triggerQueue.ToArray()[triggerQueue.Count - 1];
+                if (lastTriggerInQueue == trigger)
+                {
+                    return;
+                }
+            }
+
+            if (lastTrigger == trigger)
+            {
+                return;
+            }
+
+            if (triggerQueue.Count >= MaxQueueSize)
+            {
+                return;
+            }
+
+            triggerQueue.Enqueue(trigger);
+
+            int index = (int)trigger;
+            idleTriggerStates[index] = true;
+        }
+    }
+    public IdleTrigger? ProcessNextTrigger()
+    {
+        if (triggerQueue.Count > 0)
+        {
+            IdleTrigger nextTrigger = triggerQueue.Dequeue();
+            lastTrigger = nextTrigger;
+            animator.SetTrigger(nextTrigger.ToString());
+            return nextTrigger;
+        }
+        return null;
+    }
+
+    public void ClearTriggerQueue()
+    {
+        triggerQueue.Clear();
+    }
+
+    public int GetTriggerQueueCount()
+    {
+        return triggerQueue.Count;
+    }
+
+    public string GetTriggerQueueContents()
+    {
+        if (triggerQueue.Count == 0) return string.Empty;
+        var arr = triggerQueue.ToArray();
+        string[] strs = new string[arr.Length];
+        for (int i = 0; i < arr.Length; i++) strs[i] = arr[i].ToString();
+        return string.Join(", ", strs);
     }
 }
