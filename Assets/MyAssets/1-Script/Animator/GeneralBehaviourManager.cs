@@ -8,15 +8,15 @@ public class GeneralBehaviourManager : StateMachineBehaviour
     [Header("Default Idle")]
     int idleChoice;
     [SerializeField] int defaultIdleCount;
-
     GeneralAnimatorManager generalAnimatorManager;
 
+    
     // ------------------------------------------------------------------------------
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         generalAnimatorManager = animator.GetComponent<GeneralAnimatorManager>();
-        
-        MainLoop(animator, stateInfo);
+
+        MainLoop(stateInfo);
 
         IdleTrigger? processedTrigger = generalAnimatorManager.ProcessNextTrigger();
 
@@ -32,9 +32,8 @@ public class GeneralBehaviourManager : StateMachineBehaviour
     }
 
     // -------------------------- Helper Methods --------------------------
-    void MainLoop(Animator animator, AnimatorStateInfo stateInfo)
+    void MainLoop(AnimatorStateInfo stateInfo)
     {
-        // MainLoop logic (no debug output)
         if (stateInfo.IsName("StandMainLoop"))
         {
             generalAnimatorManager.StandMainLoop();
@@ -60,12 +59,10 @@ public class GeneralBehaviourManager : StateMachineBehaviour
             if (energy >= 60)
             {
                 generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToStandStart);
-                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToSitStart);
             }
             else if (energy < 30)
             {
-                generalAnimatorManager.TriggerReset();
-                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToStandStart);
+                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToLieStart);
             }
         }
 
@@ -77,13 +74,11 @@ public class GeneralBehaviourManager : StateMachineBehaviour
 
             if (energy >= 60)
             {
-                generalAnimatorManager.TriggerReset();
                 generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToStandStart);
             }
-            if (energy < 60 && energy >= 30)
+            else if (energy < 60 && energy >= 30)
             {
-                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToStandStart);
-                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToLieStart);
+                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToSitStart);
             }
         }
     }
