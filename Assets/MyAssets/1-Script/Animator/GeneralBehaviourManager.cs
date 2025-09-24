@@ -15,55 +15,76 @@ public class GeneralBehaviourManager : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         generalAnimatorManager = animator.GetComponent<GeneralAnimatorManager>();
-
+        
         MainLoop(animator, stateInfo);
+
+        IdleTrigger? processedTrigger = generalAnimatorManager.ProcessNextTrigger();
+
+        string contents = generalAnimatorManager.GetTriggerQueueContents();
+        if (processedTrigger.HasValue)
+        {
+            Debug.Log($"Processed: {processedTrigger.Value} | Queue: {(string.IsNullOrEmpty(contents) ? "empty" : contents)}");
+        }
+        else
+        {
+            Debug.Log($"No trigger processed | Queue: {(string.IsNullOrEmpty(contents) ? "empty" : contents)}");
+        }
     }
 
     // -------------------------- Helper Methods --------------------------
     void MainLoop(Animator animator, AnimatorStateInfo stateInfo)
     {
+        // MainLoop logic (no debug output)
         if (stateInfo.IsName("StandMainLoop"))
         {
-            if (generalAnimatorManager.gm.needsSystem.GetEnergy() < 60 && generalAnimatorManager.gm.needsSystem.GetEnergy() >= 30)
-            {
-                animator.SetTrigger("ToSitStart");
-            }
-            else if (generalAnimatorManager.gm.needsSystem.GetEnergy() < 30)
-            {
-                animator.SetTrigger("ToLieStart");
-            }
-
             generalAnimatorManager.StandMainLoop();
+
+            float energy = generalAnimatorManager.gm.needsSystem.GetEnergy();
+
+            if (energy < 60 && energy >= 30)
+            {
+                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToSitStart);
+            }
+            else if (energy < 30)
+            {
+                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToLieStart);
+            }
         }
 
         if (stateInfo.IsName("SitMainLoop"))
         {
-            if (generalAnimatorManager.gm.needsSystem.GetEnergy() >= 60)
-            {
-                animator.SetTrigger("ToStandStart");
-                animator.SetTrigger("ToSitStart");
-            }
-            else if (generalAnimatorManager.gm.needsSystem.GetEnergy() < 30)
-            {
-                animator.SetTrigger("ToStandStart");
-            }
-
             generalAnimatorManager.SitMainLoop();
+
+            float energy = generalAnimatorManager.gm.needsSystem.GetEnergy();
+
+            if (energy >= 60)
+            {
+                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToStandStart);
+                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToSitStart);
+            }
+            else if (energy < 30)
+            {
+                generalAnimatorManager.TriggerReset();
+                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToStandStart);
+            }
         }
 
         if (stateInfo.IsName("LieMainLoop"))
         {
-            if (generalAnimatorManager.gm.needsSystem.GetEnergy() >= 60)
-            {
-                animator.SetTrigger("ToStandStart");
-            }
-            if (generalAnimatorManager.gm.needsSystem.GetEnergy() < 60 && generalAnimatorManager.gm.needsSystem.GetEnergy() >= 30)
-            {
-                animator.SetTrigger("ToStandStart");
-                animator.SetTrigger("ToLieStart");
-            }
-
             generalAnimatorManager.LieMainLoop();
+
+            float energy = generalAnimatorManager.gm.needsSystem.GetEnergy();
+
+            if (energy >= 60)
+            {
+                generalAnimatorManager.TriggerReset();
+                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToStandStart);
+            }
+            if (energy < 60 && energy >= 30)
+            {
+                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToStandStart);
+                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToLieStart);
+            }
         }
     }
 }
