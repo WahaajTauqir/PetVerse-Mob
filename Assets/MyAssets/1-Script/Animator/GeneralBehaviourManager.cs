@@ -8,7 +8,7 @@ public class GeneralBehaviourManager : StateMachineBehaviour
     [Header("Default Idle")]
     int idleChoice;
     [SerializeField] int defaultIdleCount;
-    int previousIdleChoice = -1;
+
     GeneralAnimatorManager generalAnimatorManager;
 
     // ------------------------------------------------------------------------------
@@ -40,6 +40,7 @@ public class GeneralBehaviourManager : StateMachineBehaviour
         {
             if (generalAnimatorManager.gm.needsSystem.GetEnergy() >= 60)
             {
+                animator.SetTrigger("ToStandStart");
                 animator.SetTrigger("ToSitStart");
             }
             else if (generalAnimatorManager.gm.needsSystem.GetEnergy() < 30)
@@ -58,6 +59,7 @@ public class GeneralBehaviourManager : StateMachineBehaviour
             }
             if (generalAnimatorManager.gm.needsSystem.GetEnergy() < 60 && generalAnimatorManager.gm.needsSystem.GetEnergy() >= 30)
             {
+                animator.SetTrigger("ToStandStart");
                 animator.SetTrigger("ToLieStart");
             }
 
