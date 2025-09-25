@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UIElements;
+using System.Diagnostics;
 
 public enum IdleTrigger
 {
@@ -34,6 +35,7 @@ public class GeneralAnimatorManager : MonoBehaviour
     public bool[] idleTriggerStates;
     private Queue<IdleTrigger> triggerQueue;
     public int MaxQueueSize = 10;
+    public bool activityTriggered = false;
 
     void Awake()
     {
@@ -332,7 +334,7 @@ public class GeneralAnimatorManager : MonoBehaviour
         if (isStateTransition)
         {
             ClearTriggerQueue();
-            
+
             if (triggerQueue.Count >= MaxQueueSize)
             {
                 return;
@@ -378,15 +380,15 @@ public class GeneralAnimatorManager : MonoBehaviour
         {
             IdleTrigger nextTrigger = triggerQueue.Dequeue();
             lastTrigger = nextTrigger;
-            
+
             ResetAllAnimatorTriggers();
-            
+
             animator.SetTrigger(nextTrigger.ToString());
             return nextTrigger;
         }
         return null;
     }
-    
+
     private void ResetAllAnimatorTriggers()
     {
         foreach (IdleTrigger trigger in System.Enum.GetValues(typeof(IdleTrigger)))
@@ -412,5 +414,12 @@ public class GeneralAnimatorManager : MonoBehaviour
         string[] strs = new string[arr.Length];
         for (int i = 0; i < arr.Length; i++) strs[i] = arr[i].ToString();
         return string.Join(", ", strs);
+    }
+
+    // For Timeline Events
+
+     public void PlayStandIdle()
+    {
+        animator.Play("StandMainLoop", 0, 0f);
     }
 }

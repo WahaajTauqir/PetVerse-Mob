@@ -6,11 +6,9 @@ using UnityEngine;
 public class GeneralBehaviourManager : StateMachineBehaviour
 {
     [Header("Default Idle")]
-    int idleChoice;
     [SerializeField] int defaultIdleCount;
     GeneralAnimatorManager generalAnimatorManager;
 
-    
     // ------------------------------------------------------------------------------
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -36,6 +34,12 @@ public class GeneralBehaviourManager : StateMachineBehaviour
     {
         if (stateInfo.IsName("StandMainLoop"))
         {
+            if (generalAnimatorManager.activityTriggered)
+            {
+                generalAnimatorManager.gm.actionSystem.ProcessAction(generalAnimatorManager.gm.actionSystem.currentActionType);
+                generalAnimatorManager.activityTriggered = false;
+            }
+
             generalAnimatorManager.StandMainLoop();
 
             float energy = generalAnimatorManager.gm.needsSystem.GetEnergy();
@@ -52,6 +56,11 @@ public class GeneralBehaviourManager : StateMachineBehaviour
 
         if (stateInfo.IsName("SitMainLoop"))
         {
+            if (generalAnimatorManager.activityTriggered)
+            {
+                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToStandStart);
+            }
+
             generalAnimatorManager.SitMainLoop();
 
             float energy = generalAnimatorManager.gm.needsSystem.GetEnergy();
@@ -68,6 +77,11 @@ public class GeneralBehaviourManager : StateMachineBehaviour
 
         if (stateInfo.IsName("LieMainLoop"))
         {
+            if (generalAnimatorManager.activityTriggered)
+            {
+                generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToStandStart);
+            }
+
             generalAnimatorManager.LieMainLoop();
 
             float energy = generalAnimatorManager.gm.needsSystem.GetEnergy();
