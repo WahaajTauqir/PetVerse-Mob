@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.Playables;
 
 public class PlaySequenceHandler : MonoBehaviour
 {
@@ -13,7 +14,86 @@ public class PlaySequenceHandler : MonoBehaviour
 
     [SerializeField] GameObject mouthObject1;
     [SerializeField] Rigidbody ballRb1;
+    [SerializeField] PlayableDirector sequenceA;
+    [SerializeField] PlayableDirector sequenceB;
+        PlayableDirector lastPlayed;
 
+// ...existing code...
+     public void PlayRandomSequence()
+    {
+        if (sequenceA == null && sequenceB == null)
+        {
+            Debug.LogWarning("No PlayableDirectors assigned for random play.");
+            return;
+        }
+
+        // stop both so we have a clean start
+        sequenceA?.Stop();
+        sequenceB?.Stop();
+
+        // pick randomly
+        PlayableDirector pick = (Random.value > 0.5f) ? sequenceA : sequenceB;
+
+        // if chosen is null pick the other available one
+        if (pick == null) pick = (sequenceA != null) ? sequenceA : sequenceB;
+
+        // if both directors are available and we picked the same as last time, flip to the other
+        if (lastPlayed != null && sequenceA != null && sequenceB != null && pick == lastPlayed)
+        {
+            pick = (pick == sequenceA) ? sequenceB : sequenceA;
+        }
+
+        if (pick != null)
+        {
+            Debug.Log("Playing random sequence: " + pick.name);
+
+            // record last played
+            lastPlayed = pick;
+
+            // Ensure the director's GameObject is active and component enabled
+            pick.gameObject.SetActive(true);
+            pick.enabled = true;
+
+            // subscribe to stopped for cleanup (safe double-subscribe handling)
+            pick.stopped -= OnDirectorStopped;
+            pick.stopped += OnDirectorStopped;
+
+            // Start playing next frame to allow Unity to initialize bindings when object was inactive
+            StartCoroutine(PlayDirectorNextFrame(pick));
+        }
+        else
+        {
+            Debug.LogWarning("PlayRandomSequence failed: both directors are null.");
+        }
+    }
+
+    // called when a PlayableDirector finishes playing
+    void OnDirectorStopped(PlayableDirector dir)
+    {
+        if (dir == null) return;
+        dir.stopped -= OnDirectorStopped;
+        // optional: disable director GameObject again if you want
+        // dir.gameObject.SetActive(false);
+    }
+
+    System.Collections.IEnumerator PlayDirectorNextFrame(PlayableDirector dir)
+    {
+        if (dir == null) yield break;
+
+        // Wait one frame so Unity initializes bindings if the director or targets were inactive
+        yield return null;
+
+        // ensure director starts from beginning
+        try
+        {
+            dir.time = 0;
+            dir.Evaluate();
+        }
+        catch { /* Evaluate may throw on some versions; ignore safely */ }
+
+        dir.Play();
+    }
+// ...existing code...
     public void ActivateObject()
     {
         if (mouthObject == null)

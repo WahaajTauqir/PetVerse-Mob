@@ -18,6 +18,7 @@ public class GeneralManager : MonoBehaviour
     public TrickSystem tricksSystem;
     public MemoryJournal memoryJournal;
     public GeneralAnimatorManager generalAnimationManager;
+    public PlaySequenceHandler playSequenceHandler;
 
     // THE MAIN FLOW OF THE PET
     // ---------------------------------------------------------------------------------------------------+
