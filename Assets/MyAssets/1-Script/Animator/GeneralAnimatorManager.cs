@@ -418,8 +418,23 @@ public class GeneralAnimatorManager : MonoBehaviour
 
     // For Timeline Events
 
-     public void PlayStandIdle()
+    public void PlayStandIdle()
     {
         animator.Play("StandMainLoop", 0, 0f);
+        ShowActivityPanel();
+    }
+
+    public void ShowActivityPanel()
+    {
+        SetActionPlayingFalse();
+        gm.activitySetupEvent.activitySetupAnimator.Play("show");
+    }
+
+    public void SetActionPlayingFalse()
+    {
+        gm.activitySetupEvent.actionPlaying = false;
+
+        gm.needsSystem.ProcessNeeds(ActionType.Feed);
+        gm.emotionSystem.ProcessEmotion(ActionType.Feed);
     }
 }

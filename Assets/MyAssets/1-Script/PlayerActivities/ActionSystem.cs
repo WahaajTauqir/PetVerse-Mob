@@ -36,6 +36,8 @@ public class ActionSystem : MonoBehaviour
     public GameObject feedSequence;
     public GameObject groomSequence;
 
+    [SerializeField] GameObject menuPanel;
+
     private void Awake()
     {
         InitializeActions();
@@ -53,20 +55,23 @@ public class ActionSystem : MonoBehaviour
 
     public void ProcessAction(ActionType action)
     {
-        gm.needsSystem.ProcessNeeds(action);
-        gm.emotionSystem.ProcessEmotion(action);
-
+        if (action != ActionType.Feed)
+        {
+            gm.needsSystem.ProcessNeeds(action);
+            gm.emotionSystem.ProcessEmotion(action);
+        }
+        
         if (action == ActionType.Feed)
         {
             gm.firebaseDataManager.CheckAndSaveFirstFeed();
-            feedSequence.SetActive(true);
+            //feedSequence.SetActive(true);
+
+            menuPanel.SetActive(true);
         }
 
         if (action == ActionType.Play)
         {
-
             gm.playSequenceHandler.PlayRandomSequence();
-
             // playMiddleSequence.SetActive(true);
         }
 

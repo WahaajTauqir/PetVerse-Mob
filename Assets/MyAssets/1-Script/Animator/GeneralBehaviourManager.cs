@@ -29,6 +29,11 @@ public class GeneralBehaviourManager : StateMachineBehaviour
         }
     }
 
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        MainLoop(stateInfo);
+    }
+
     // -------------------------- Helper Methods --------------------------
     void MainLoop(AnimatorStateInfo stateInfo)
     {
@@ -52,6 +57,20 @@ public class GeneralBehaviourManager : StateMachineBehaviour
             {
                 generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToLieStart);
             }
+
+            if (generalAnimatorManager.gm.moodSystem.GetMoodScore() >= 50)
+            {
+                generalAnimatorManager.animator.SetTrigger("ToStandTailWag");
+            }
+            else
+            {
+                generalAnimatorManager.animator.SetTrigger("ToEntryTail");
+            }
+
+            if (generalAnimatorManager.gm.moodSystem.GetMoodScore() < 20)
+            {
+
+            }
         }
 
         if (stateInfo.IsName("SitMainLoop"))
@@ -59,6 +78,15 @@ public class GeneralBehaviourManager : StateMachineBehaviour
             if (generalAnimatorManager.activityTriggered)
             {
                 generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToStandStart);
+                //generalAnimatorManager.activityTriggered = false; // Reset the flag
+                
+                // Process the trigger immediately
+                IdleTrigger? processedTrigger = generalAnimatorManager.ProcessNextTrigger();
+                if (processedTrigger.HasValue)
+                {
+                    Debug.Log($"Activity triggered: {processedTrigger.Value}");
+                    return; // Exit early since we're transitioning states
+                }
             }
 
             generalAnimatorManager.SitMainLoop();
@@ -73,6 +101,15 @@ public class GeneralBehaviourManager : StateMachineBehaviour
             {
                 generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToLieStart);
             }
+
+            if (generalAnimatorManager.gm.moodSystem.GetMoodScore() >= 50)
+            {
+                generalAnimatorManager.animator.SetTrigger("ToSitTailWag");
+            }
+            else
+            {
+                generalAnimatorManager.animator.SetTrigger("ToEntryTail");
+            }
         }
 
         if (stateInfo.IsName("LieMainLoop"))
@@ -80,6 +117,15 @@ public class GeneralBehaviourManager : StateMachineBehaviour
             if (generalAnimatorManager.activityTriggered)
             {
                 generalAnimatorManager.SetIdleTrigger(IdleTrigger.ToStandStart);
+                //generalAnimatorManager.activityTriggered = false; // Reset the flag
+                
+                // Process the trigger immediately
+                IdleTrigger? processedTrigger = generalAnimatorManager.ProcessNextTrigger();
+                if (processedTrigger.HasValue)
+                {
+                    Debug.Log($"Activity triggered: {processedTrigger.Value}");
+                    return; // Exit early since we're transitioning states
+                }
             }
 
             generalAnimatorManager.LieMainLoop();

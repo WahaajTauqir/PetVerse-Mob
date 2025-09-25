@@ -19,6 +19,7 @@ public class GeneralManager : MonoBehaviour
     public MemoryJournal memoryJournal;
     public GeneralAnimatorManager generalAnimationManager;
     public PlaySequenceHandler playSequenceHandler;
+    public ActivitySetupEvent activitySetupEvent;
 
     // THE MAIN FLOW OF THE PET
     // ---------------------------------------------------------------------------------------------------+

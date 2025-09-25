@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ActivitySetupEvent : MonoBehaviour
 {
+    public bool actionPlaying = false;
     [SerializeField] ActivitySetup activitySetup;
+    public Animator activitySetupAnimator;
 
     public void CallOnAnimationEnds()
     {
-        activitySetup.OnAnimationEnds();
+        if (!actionPlaying)
+        {
+            activitySetup.OnAnimationEnds();
+        }
     }
 }

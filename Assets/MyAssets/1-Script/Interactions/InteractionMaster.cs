@@ -41,7 +41,6 @@ public class InteractionMaster : MonoBehaviour
         // Update mood pointer rotation based on mood score (0 -> 100)
         float moodScore = Mathf.Clamp(gm.GetMoodScore(), 0f, 100f);
         SetPointerRotationFromMood(moodScore);
-
     }
     // ---------------------------------------------------------------------------
 
@@ -50,30 +49,45 @@ public class InteractionMaster : MonoBehaviour
     {
         gm.actionSystem.currentActionType = ActionType.Feed;
         gm.generalAnimationManager.activityTriggered = true;
+
+        gm.activitySetupEvent.actionPlaying = true;
+        gm.activitySetupEvent.activitySetupAnimator.Play("hide");
     }
 
     public void Play()
     {
         gm.actionSystem.currentActionType = ActionType.Play;
         gm.generalAnimationManager.activityTriggered = true;
+
+        gm.activitySetupEvent.actionPlaying = true;
+        gm.activitySetupEvent.activitySetupAnimator.Play("hide");
     }
 
     public void Groom()
     {
         gm.actionSystem.currentActionType = ActionType.Groom;
         gm.generalAnimationManager.activityTriggered = true;
+
+        gm.activitySetupEvent.actionPlaying = true;
+        gm.activitySetupEvent.activitySetupAnimator.Play("hide");
     }
 
     public void Sleep()
     {
         gm.actionSystem.currentActionType = ActionType.Sleep;
         gm.generalAnimationManager.activityTriggered = true;
+
+        gm.activitySetupEvent.actionPlaying = true;
+        gm.activitySetupEvent.activitySetupAnimator.Play("hide");
     }
 
     public void Pet()
     {
         gm.actionSystem.currentActionType = ActionType.Pet;
         gm.generalAnimationManager.activityTriggered = true;
+
+        gm.activitySetupEvent.actionPlaying = true;
+        gm.activitySetupEvent.activitySetupAnimator.Play("hide");
     }
 
     // ------------------------------------------------
