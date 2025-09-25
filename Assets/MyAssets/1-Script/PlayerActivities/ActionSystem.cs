@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
 public enum ActionType
 {
     Feed,
@@ -22,6 +23,7 @@ public class Action
 
 public class ActionSystem : MonoBehaviour
 {
+
     [SerializeField] GeneralManager gm;
 
     private List<Action> actions = new List<Action>();
@@ -62,7 +64,10 @@ public class ActionSystem : MonoBehaviour
 
         if (action == ActionType.Play)
         {
-            playMiddleSequence.SetActive(true);
+
+            gm.playSequenceHandler.PlayRandomSequence();
+
+            // playMiddleSequence.SetActive(true);
         }
 
         if (action == ActionType.Groom)

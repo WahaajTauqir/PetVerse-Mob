@@ -48705,6 +48705,7 @@ MonoBehaviour:
   tricksSystem: {fileID: 1424693260}
   memoryJournal: {fileID: 1223946279}
   generalAnimationManager: {fileID: 861264356}
+  playSequenceHandler: {fileID: 1500078121}
 --- !u!4 &1466737352
 Transform:
   m_ObjectHideFlags: 0
@@ -49201,6 +49202,8 @@ MonoBehaviour:
         m_CallState: 2
   mouthObject1: {fileID: 367052448}
   ballRb1: {fileID: 1746182300}
+  sequenceA: {fileID: 1188413486}
+  sequenceB: {fileID: 1577661244}
 --- !u!4 &1500078122
 Transform:
   m_ObjectHideFlags: 0
