@@ -36,6 +36,7 @@ public class GeneralAnimatorManager : MonoBehaviour
     private Queue<IdleTrigger> triggerQueue;
     public int MaxQueueSize = 10;
     public bool activityTriggered = false;
+    public bool mainLoopHasStoped = false;
 
     void Awake()
     {
@@ -433,7 +434,10 @@ public class GeneralAnimatorManager : MonoBehaviour
     public void SetActionPlayingFalse()
     {
         gm.activitySetupEvent.actionPlaying = false;
+    }
 
+    public void FeedNeedEmotionUpdate()
+    {
         gm.needsSystem.ProcessNeeds(ActionType.Feed);
         gm.emotionSystem.ProcessEmotion(ActionType.Feed);
     }

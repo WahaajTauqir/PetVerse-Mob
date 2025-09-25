@@ -31,6 +31,7 @@ public class GeneralBehaviourManager : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+
         MainLoop(stateInfo);
     }
 

@@ -52,6 +52,8 @@ public class InteractionMaster : MonoBehaviour
 
         gm.activitySetupEvent.actionPlaying = true;
         gm.activitySetupEvent.activitySetupAnimator.Play("hide");
+
+        
     }
 
     public void Play()
