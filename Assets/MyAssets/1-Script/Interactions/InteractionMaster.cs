@@ -48,27 +48,32 @@ public class InteractionMaster : MonoBehaviour
     // Player Activity
     public void Feed()
     {
-        gm.actionSystem.ProcessAction(ActionType.Feed);
+        gm.actionSystem.currentActionType = ActionType.Feed;
+        gm.generalAnimationManager.activityTriggered = true;
     }
 
     public void Play()
     {
-        gm.actionSystem.ProcessAction(ActionType.Play);
+        gm.actionSystem.currentActionType = ActionType.Play;
+        gm.generalAnimationManager.activityTriggered = true;
     }
 
     public void Groom()
     {
-        gm.actionSystem.ProcessAction(ActionType.Groom);
+        gm.actionSystem.currentActionType = ActionType.Groom;
+        gm.generalAnimationManager.activityTriggered = true;
     }
 
     public void Sleep()
     {
-        gm.actionSystem.ProcessAction(ActionType.Sleep);
+        gm.actionSystem.currentActionType = ActionType.Sleep;
+        gm.generalAnimationManager.activityTriggered = true;
     }
 
     public void Pet()
     {
-        gm.actionSystem.ProcessAction(ActionType.Pet);
+        gm.actionSystem.currentActionType = ActionType.Pet;
+        gm.generalAnimationManager.activityTriggered = true;
     }
 
     // ------------------------------------------------

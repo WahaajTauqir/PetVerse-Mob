@@ -26,6 +26,14 @@ public class ActionSystem : MonoBehaviour
 
     private List<Action> actions = new List<Action>();
 
+    public ActionType currentActionType;
+
+    public GameObject sleepSequence;
+    public GameObject playMiddleSequence;
+    public GameObject petSequence;
+    public GameObject feedSequence;
+    public GameObject groomSequence;
+
     private void Awake()
     {
         InitializeActions();
@@ -49,26 +57,27 @@ public class ActionSystem : MonoBehaviour
         if (action == ActionType.Feed)
         {
             gm.firebaseDataManager.CheckAndSaveFirstFeed();
+            feedSequence.SetActive(true);
         }
 
         if (action == ActionType.Play)
         {
-
+            playMiddleSequence.SetActive(true);
         }
 
         if (action == ActionType.Groom)
         {
-
+            groomSequence.SetActive(true);
         }
 
         if (action == ActionType.Sleep)
         {
-
+            sleepSequence.SetActive(true);
         }
 
         if (action == ActionType.Pet)
         {
-
+            petSequence.SetActive(true);
         }
 
         gm.firebaseDataManager.FirebaseSaveActionData(action);
