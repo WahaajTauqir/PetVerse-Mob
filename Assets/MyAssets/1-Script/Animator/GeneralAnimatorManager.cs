@@ -36,7 +36,9 @@ public class GeneralAnimatorManager : MonoBehaviour
     private Queue<IdleTrigger> triggerQueue;
     public int MaxQueueSize = 10;
     public bool activityTriggered = false;
-    public bool mainLoopHasStoped = false;
+    public bool trickTriggered = false;
+
+    public GameObject[] sequences;
 
     void Awake()
     {
@@ -410,6 +412,7 @@ public class GeneralAnimatorManager : MonoBehaviour
 
     public string GetTriggerQueueContents()
     {
+        
         if (triggerQueue.Count == 0) return string.Empty;
         var arr = triggerQueue.ToArray();
         string[] strs = new string[arr.Length];
@@ -421,6 +424,14 @@ public class GeneralAnimatorManager : MonoBehaviour
 
     public void PlayStandIdle()
     {
+        foreach (var sequence in sequences)
+        {
+            if (sequence != null)
+            {
+                sequence.SetActive(false);
+            }
+        }
+
         animator.Play("StandMainLoop", 0, 0f);
         ShowActivityPanel();
     }
@@ -428,7 +439,7 @@ public class GeneralAnimatorManager : MonoBehaviour
     public void ShowActivityPanel()
     {
         SetActionPlayingFalse();
-        gm.activitySetupEvent.activitySetupAnimator.Play("show");
+        gm.activitySetupEvent.activitySetupAnimator.Play("show", 0, 0f);
     }
 
     public void SetActionPlayingFalse()

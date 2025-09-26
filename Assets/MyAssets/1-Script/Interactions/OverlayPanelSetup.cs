@@ -5,7 +5,8 @@ using UnityEngine;
 enum OpenPanel
 {
     Journal,
-    Settings
+    Settings,
+    Profile
 }
 
 public class OverlayPanelSetup : MonoBehaviour
@@ -16,6 +17,7 @@ public class OverlayPanelSetup : MonoBehaviour
     [SerializeField] GameObject bgFadePanel;
     [SerializeField] GameObject journalObj;
     [SerializeField] GameObject settingsObj;
+    [SerializeField] GameObject profileObj;
 
     Animator bgFadePanelAnimator;
     CanvasGroup bgFadePanelCanvasGroup;
@@ -45,6 +47,13 @@ public class OverlayPanelSetup : MonoBehaviour
         bgFadePanelCanvasGroup.blocksRaycasts = true;
     }
 
+    public void OpenProfile()
+    {
+        openPanel = OpenPanel.Profile;
+        bgFadePanelAnimator.Play("show", 0, 0f);
+        bgFadePanelCanvasGroup.blocksRaycasts = true;
+    }
+
     public void OnAnimationEnds()
     {
         if (openPanel == OpenPanel.Journal)
@@ -56,6 +65,10 @@ public class OverlayPanelSetup : MonoBehaviour
         else if (openPanel == OpenPanel.Settings)
         {
             settingsObj.SetActive(true);
+        }
+        else if (openPanel == OpenPanel.Profile)
+        {
+            profileObj.SetActive(true);
         }
     }
 
@@ -70,7 +83,13 @@ public class OverlayPanelSetup : MonoBehaviour
     {
         settingsObj.SetActive(false);
         bgFadePanelAnimator.Play("hide", 0, 0f);
-        bgFadePanelCanvasGroup.interactable = false;
+        bgFadePanelCanvasGroup.blocksRaycasts = false;
     }
 
+    public void CloseProfile()
+    {
+        profileObj.SetActive(false);
+        bgFadePanelAnimator.Play("hide", 0, 0f);
+        bgFadePanelCanvasGroup.blocksRaycasts = false;
+    }
 }

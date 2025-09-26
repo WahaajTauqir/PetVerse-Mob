@@ -34,7 +34,17 @@ public class TrickSystem : MonoBehaviour
 
     [SerializeField] GameObject sittingSlider;
     [SerializeField] Slider sittingMasteryLevelSlider;
+    [SerializeField] GameObject stayingSlider;
+    [SerializeField] Slider stayingMasteryLevelSlider;
+    [SerializeField] GameObject comingSlider;
+    [SerializeField] Slider comingMasteryLevelSlider;
     [SerializeField] Animator animator;
+
+    public TrickType currentTrickType;
+
+    [SerializeField] GameObject sitTrickSequence;
+    [SerializeField] GameObject stayTrickSequence;
+    [SerializeField] GameObject comeTrickSequence;
 
     private void Awake()
     {
@@ -88,10 +98,7 @@ public class TrickSystem : MonoBehaviour
             gm.firebaseDataManager.FirebaseSaveTrickData(userId, trickType.ToString(), trick.isLearned, (int)trick.masteryLevel, trick.timesPerformed);
             gm.firebaseDataManager.RequestUpdateFavouriteActivity();
 
-            if (trickType == TrickType.Sit)
-            {
-                ShowTrick();
-            }
+            ShowTrick(trickType);
         }
 
         // If we have never loaded this trick from the server and local values are default, perform a one-time fetch.
@@ -133,21 +140,68 @@ public class TrickSystem : MonoBehaviour
         }
     }
 
+    public void ShowTrick(TrickType trickType)
+    {
+        var trick = tricks.Find(t => t.trickType == trickType);
+        if (trick == null) return;
+
+        switch (trickType)
+        {
+            case TrickType.Sit:
+                if (trick.isLearned)
+                {
+                    sittingSlider.SetActive(false);
+                    sitTrickSequence.SetActive(true);
+                }
+                else
+                {
+                    HideAllTrickSliders();
+                    sittingSlider.SetActive(true);
+                    sittingMasteryLevelSlider.value = trick.masteryLevel / 100;
+                }
+                break;
+
+            case TrickType.Stay:
+                if (trick.isLearned)
+                {
+                    stayingSlider.SetActive(false);
+                    stayTrickSequence.SetActive(true);
+                }
+                else
+                {
+                    HideAllTrickSliders();
+                    stayingSlider.SetActive(true);
+                    stayingMasteryLevelSlider.value = trick.masteryLevel / 100;
+                }
+                break;
+
+            case TrickType.Come:
+                if (trick.isLearned)
+                {
+                    comingSlider.SetActive(false);
+                    comeTrickSequence.SetActive(true);
+                }
+                else
+                {
+                    HideAllTrickSliders();
+                    comingSlider.SetActive(true);
+                    comingMasteryLevelSlider.value = trick.masteryLevel / 100;
+                }
+                break;
+        }
+    }
+
+    public void HideAllTrickSliders()
+    {
+        sittingSlider.SetActive(false);
+        stayingSlider.SetActive(false);
+        comingSlider.SetActive(false);
+    }
+
+    // Keep the original ShowTrick method for backward compatibility
     public void ShowTrick()
     {
-        var sitTrick = tricks.Find(t => t.trickType == TrickType.Sit);
-        if (sitTrick == null) return;
-
-        if (sitTrick.isLearned)
-        {
-            sittingSlider.SetActive(false);
-            animator.SetTrigger("ToSitStart");
-        }
-        else
-        {
-            sittingSlider.SetActive(true);
-            sittingMasteryLevelSlider.value = sitTrick.masteryLevel;
-        }
+        ShowTrick(TrickType.Sit);
     }
     // Non Production Code
     // -----------------------------------------------------------------------------------------------

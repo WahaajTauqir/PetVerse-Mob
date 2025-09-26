@@ -167,49 +167,4 @@ public class PlaySequenceHandler : MonoBehaviour
     {
         mouthObject1.SetActive(false);
     }
-
-
-    // void Update()
-    // {
-    //     if (Input.GetMouseButtonDown(0))
-    //     {
-    //         HandlePointer(Input.mousePosition);
-    //     }
-
-    //     if (Input.touchCount > 0)
-    //     {
-    //         Touch t = Input.GetTouch(0);
-    //         if (t.phase == TouchPhase.Began)
-    //         {
-    //             HandlePointer(t.position);
-    //         }
-    //     }
-    // }
-
-    void HandlePointer(Vector2 screenPosition)
-    {
-        if (screenPosition.x > (Screen.width * 0.5f))
-        {
-            OnRightSideClick();
-        }
-        else
-        {
-            OnLeftSideClick();
-        }
-    }
-
-    public void OnRightSideClick()
-    {
-        ActivateObject();
-
-        onRightSideClicked?.Invoke();
-    }
-
-    public void OnLeftSideClick()
-    {
-        BallRelease();
-
-        onLeftSideClicked?.Invoke();
-    }
-
 }
