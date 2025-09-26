@@ -46,12 +46,6 @@ public class GeneralBehaviourManager : StateMachineBehaviour
                 generalAnimatorManager.activityTriggered = false;
             }
 
-            if (generalAnimatorManager.trickTriggered)
-            {
-                generalAnimatorManager.gm.tricksSystem.ProcessTrick(generalAnimatorManager.gm.tricksSystem.currentTrickType);
-                generalAnimatorManager.trickTriggered = false;
-            }
-
             generalAnimatorManager.StandMainLoop();
 
             float energy = generalAnimatorManager.gm.needsSystem.GetEnergy();

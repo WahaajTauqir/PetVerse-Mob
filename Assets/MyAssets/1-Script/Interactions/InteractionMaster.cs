@@ -95,29 +95,35 @@ public class InteractionMaster : MonoBehaviour
 
     public void PerformSitTrick()
     {
-        gm.tricksSystem.currentTrickType = TrickType.Sit;
-        gm.generalAnimationManager.trickTriggered = true;
+        // gm.tricksSystem.currentTrickType = TrickType.Sit;
+        // gm.generalAnimationManager.trickTriggered = true;
 
-        gm.activitySetupEvent.actionPlaying = true;
-        gm.activitySetupEvent.activitySetupAnimator.Play("hide", 0, 0f);
+        // gm.activitySetupEvent.actionPlaying = true;
+        // gm.activitySetupEvent.activitySetupAnimator.Play("hide", 0, 0f);
+
+        gm.tricksSystem.ProcessTrick(TrickType.Sit);
     }
 
     public void PerformStayTrick()
     {
-        gm.tricksSystem.currentTrickType = TrickType.Stay;
-        gm.generalAnimationManager.trickTriggered = true;
+        // gm.tricksSystem.currentTrickType = TrickType.Stay;
+        // gm.generalAnimationManager.trickTriggered = true;
 
-        gm.activitySetupEvent.actionPlaying = true;
-        gm.activitySetupEvent.activitySetupAnimator.Play("hide", 0, 0f);
+        // gm.activitySetupEvent.actionPlaying = true;
+        // gm.activitySetupEvent.activitySetupAnimator.Play("hide", 0, 0f);
+
+        gm.tricksSystem.ProcessTrick(TrickType.Stay);
     }
 
     public void PerformComeTrick()
     {
-        gm.tricksSystem.currentTrickType = TrickType.Come;
-        gm.generalAnimationManager.trickTriggered = true;
+        // gm.tricksSystem.currentTrickType = TrickType.Come;
+        // gm.generalAnimationManager.trickTriggered = true;
 
-        gm.activitySetupEvent.actionPlaying = true;
-        gm.activitySetupEvent.activitySetupAnimator.Play("hide", 0, 0f);
+        // gm.activitySetupEvent.actionPlaying = true;
+        // gm.activitySetupEvent.activitySetupAnimator.Play("hide", 0, 0f);
+        
+        gm.tricksSystem.ProcessTrick(TrickType.Come);
     }
 
     private void SetPointerRotationFromMood(float moodScore)

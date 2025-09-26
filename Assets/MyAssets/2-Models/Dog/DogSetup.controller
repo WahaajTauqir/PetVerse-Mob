@@ -158,15 +158,12 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 4168457021343213448}
     m_Position: {x: 50, y: -80, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -6153468895274457050}
-    m_Position: {x: 679.0917, y: 810.0628, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 230, y: 790, z: 0}
+  m_AnyStatePosition: {x: 640, y: 740, z: 0}
   m_EntryPosition: {x: 50, y: 790, z: 0}
   m_ExitPosition: {x: -130, y: 790, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -597,32 +594,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultIdleCount: 0
---- !u!1102 &-6153468895274457050
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Skeleton_Sitting_loop_1_MouthClose
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fbe282e4519ada546b764d26c76936a6, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1101 &-6152128642254048851
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1483,7 +1454,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.24999994
   m_TransitionOffset: 0
-  m_ExitTime: 0
+  m_ExitTime: 0.7379563
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
